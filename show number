@@ -1,0 +1,31 @@
+# laboratório 10 - questão 2
+# Thais Pellens Trapp
+
+.data
+
+sol_entrada: .asciiz "insira um numero inteiro para imprimi-lo: "
+sol_saida: .asciiz  "o numero inserido foi: "
+
+.text
+
+#imprime mensagem ao usuario para inserir numero 
+li $v0, 4
+la  $a0, sol_entrada
+syscall
+
+#le valor inserido em $v0
+li $v0, 5
+syscall
+
+#armazena o valor lido em $tq
+move $t1, $v0
+
+#imprime mensagem de saida
+li $v0, 4
+la $a0,  sol_saida
+syscall
+
+#imprime valor inserido
+move $a0, $t1
+li $v0, 1
+syscall
